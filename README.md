@@ -1,69 +1,41 @@
-# Offensive Security Lab — Metasploitable2 (Controlled Lab)
+# Lawrence Omonua - Cybersecurity Student Portfolio
 
-**Author:** Lawrence Omonua  
-**Date:** 2025-09-22  
-**Environment:** Kali Linux (attacker) + Metasploitable2 (target) — VirtualBox isolated network  
-**Scope & Authorization:** This work was performed in an isolated, authorized lab environment against
-the intentionally vulnerable Metasploitable2 VM. No unauthorized systems were targeted.
+I’m Lawrence Omonua, a cybersecurity-focused Information Science student at the University of Maryland, College Park. I’m passionate about cloud security, network defense, and hands-on cybersecurity projects. This repository showcases projects that demonstrate my experience in offensive and defensive security, cloud access control, and practical system hardening.
 
 ---
 
-## Executive Summary
-This lab demonstrates reconnaissance, service enumeration, and credential-based exploitation of FTP and
-SSH services on Metasploitable2 using `netdiscover`, `nmap`, `Hydra`, and the Metasploit Framework. I
-created short username/password wordlists, performed automated brute-force attempts, obtained interactive sessions,
-and documented findings with remediation recommendations.
+## Education
+**University of Maryland, College Park, MD – Aug 2023 – May 2027**
+- Bachelor of Science in Information Science | GPA: 3.6
+- Minors: Advanced Cybersecurity Experience for Students (ACES), Information Risk Management, Ethics, and Privacy
 
 ---
 
-## Lab Workflow
-**Setup**
-- Installed and configured Kali Linux in VirtualBox.  
-- (Metasploitable2 obtained separately) Configured VirtualBox NAT/host-only network so both VMs can communicate.
-
-**FTP path**
-1. Network discovery with `netdiscover` to identify devices.  
-2. Service enumeration with `nmap` against the Metasploitable2 IP.  
-3. Created `users.txt` via `nano` containing candidate usernames.  
-4. Created `passwords.txt` via `nano` containing candidate passwords.  
-5. Confirmed the lists.  
-6. Brute-forced FTP using `hydra` with the created wordlists.  
-7. Verified successful FTP login and captured session evidence.
-
-**SSH path**
-1. Re-used `nmap` output to confirm SSH (22/tcp) presence.  
-2. Used `msfconsole` (module `auxiliary/scanner/ssh/ssh_login`) with username/password lists to test SSH logins.  
-3. Set `RHOSTS`, `USER_FILE`, and `PASS_FILE` in the module, then executed the module.  
-4. Identified active sessions and joined one to obtain an interactive shell.
+## Certifications
+- CompTIA Security+ | CompTIA Network+
+- AWS Certified Cloud Practitioner | AWS Certified Solutions Architect Associate
+- Microsoft Office Specialist: Excel Expert, Excel Associate, PowerPoint, Word
 
 ---
 
-## Results (summary)
-Open services discovered: FTP (21/tcp), SSH (22/tcp) — confirmed via nmap.
-
-FTP: Successful brute-force login achieved using Hydra with local wordlists (document success line in evidence/hydra_output.txt,
-sanitized).
-
-SSH: Metasploit ssh_login identified at least one valid username/password pair in the lab environment; interactive shell access
-verified.
-
-Impact: Remote access was obtainable via credential-based attacks; this demonstrates risk from default/weak credentials and
-exposed remote services.
+## Skills
+Technical & Cybersecurity Skills: Python, Splunk, Windows OS, IAM, EC2, S3, RDS, VPC, Secure Protocols (HTTPS, SSH, SFTP), Threat Identification, System Hardening
+Professional Skills: Troubleshooting & Documentation, Team Leadership, Communication & Collaboration
 
 ---
 
-## Risk assessment
-Severity: High — exposed remote access services with weak credentials allow unauthorized remote access, potential data exfiltration, privilege escalation, and persistence.
+**Offensive & Defensive Security Lab – Kali + Metasploitable2**
 
-Likelihood: High for systems using default or weak passwords and lacking monitoring.
+- Conducted controlled vulnerability scanning and exploitation using Nmap, Metasploit, and Hydra.
+- Documented system hardening strategies aligned with security best practices.
 
-Impact: Potential full compromise of the host and lateral movement into connected networks.
+**AWS S3 Role-Based Access Control Lab**
+
+- Configured IAM users and policies for S3 buckets with roles like Admin and Read-Only.
+- Enforced the principle of least privilege and documented security best practices to prevent unauthorized access.
 
 ---
 
-## Recommended Security Changes
-Disable insecure services (highest impact): Replace FTP with SFTP and remove unnecessary legacy services.
+## About Me
 
-Enforce strong authentication: Implement SSH key-based authentication and disable, enable MFA for remote access if possible, require strong, unique passwords
-
-Network access controls: Use a host based firewall and/or network ACLs to restrict SSH/FTP. Place administrative services on private networks or behind VPNs.
+I enjoy using cloud technologies, networking, and cybersecurity concepts to solve real-world problems. I’m currently seeking a cybersecurity internship opportunities to expand my hands-on experience in both offensive and defensive security, cloud security, and system hardening.
